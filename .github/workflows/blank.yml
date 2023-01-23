@@ -12,14 +12,14 @@ jobs:
     - name: Download Ngrok.
       run: |
         Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
-        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/Free-RDPV2/start.bat -OutFile start.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/Free-RDPV2/wallpaper.png -OutFile wallpaper.png
-        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/Free-RDPV2/wallpaper.bat -OutFile wallpaper.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/Free-RDPV2/loop.bat -OutFile loop.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/RDP/luciaximena/start.bat -OutFile start.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/RDP/luciaximena/wallpaper.bmp -OutFile wallpaper.bmp
+        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/RDP/luciaximena/wallpaper.bat -OutFile wallpaper.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/RDP/luciaximena/loop.bat -OutFile loop.bat
     - name: Download Launcher.
       run: |
-        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/Free-RDPV2/launcher/Node.js.lnk -OutFile Node.js.lnk
-        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/Free-RDPV2/launcher/Visual%20Studio%202019.lnk -OutFile "Visual Studio 2019.lnk"
+        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/Free-RDPV2/luciaximena/launcher/Node.js.lnk -OutFile Node.js.lnk
+        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/Free-RDPV2/luciaximena/launcher/Visual%20Studio%202019.lnk -OutFile "Visual Studio 2019.lnk"
     - name: Extracting Ngrok File.
       run: Expand-Archive ngrok.zip
     - name: Connect To Account Ngrok.
@@ -31,13 +31,18 @@ jobs:
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
         Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
-        copy wallpaper.png D:\a\wallpaper.png
+        copy wallpaper.bmp D:\a\wallpaper.bmp
         copy wallpaper.bat D:\a\wallpaper.bat
         copy Node.js.lnk C:\Users\Public\Desktop\Node.js.lnk
         copy "Visual Studio 2019.lnk" "C:\Users\Public\Desktop\Visual Studio 2019.lnk"
+        ./wallpaper.bat
+        ./wallpaper.bat
+        ./wallpaper.bat
     - name: Make Tunnel.
       run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp --region ap 3389"'
     - name: Connect To Your RDP CPU 2 Core - 7GB Ram - 256 SSD.
       run: cmd /c start.bat
+    - name: Changing Wallpaper...
+      run: cmd /c wallpaper.bat
     - name: Successfully Created! You Can Close Tabs Now.
       run: cmd /c loop.bat
