@@ -12,14 +12,14 @@ jobs:
     - name: Download Ngrok.
       run: |
         Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
-        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/RDP/idk/start.bat -OutFile start.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/RDP/idk/wallpaper.bmp -OutFile wallpaper.bmp
-        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/RDP/idk/wallpaper.bat -OutFile wallpaper.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/RDP/idk/loop.bat -OutFile loop.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/Free-RDPV4/idk/start.bat -OutFile start.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/Free-RDPV4/idk/wallpaper.bmp -OutFile wallpaper.bmp
+        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/Free-RDPV4/idk/wallpaper.bat -OutFile wallpaper.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/Free-RDPV4/idk/loop.bat -OutFile loop.bat
     - name: Download Launcher.
       run: |
-        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/RDP/idk/launcher/Node.js.lnk -OutFile Node.js.lnk
-        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/RDP/idk/launcher/Visual%20Studio%202019.lnk -OutFile "Visual Studio 2019.lnk"
+        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/Free-RDPV4/idk/launcher/Node.js.lnk -OutFile Node.js.lnk
+        Invoke-WebRequest https://raw.githubusercontent.com/RavensVenix/Free-RDPV4/idk/launcher/Visual%20Studio%202019.lnk -OutFile "Visual Studio 2019.lnk"
     - name: Extracting Ngrok File.
       run: Expand-Archive ngrok.zip
     - name: Connect To Account Ngrok.
